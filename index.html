@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prcptn forest</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://shoppy.gg/api/embed.js"></script>
+    <link rel="shortcut icon" href="images/logo.svg">
+
+    <meta content="prcptn forest: motion graphics, simplified" property="og:title">
+    <meta content="Why should you need professional software and experience to create a good-looking video intro? With prcptn forest, you can customize and render a video in seconds." property="og:description">
+    <meta content="forest" property="og:site_name">
+    <meta content='images/logo.svg' property='og:image'>
+</head>
+<body>
+<div class="cont">
+    <div class="inner">
+        <div class="header">
+            <h2>prcptn</h2>
+            <h1>forest</h1>
+        </div>
+    </div>
+</div>
+<div class="cont">
+    <div class="inner">
+        <h2>Click a template to start editing.<br>&blacktriangledown;</h2>
+        <div class="header tempopen" id="pixel">
+            <img class="template" src="images/pixel.png">
+        </div>
+        <div class="header" id="modern">
+            <img class="template" src="images/modern.png">
+        </div>
+        <div class="header" id="retrowave">
+            <img class="template" src="images/retrowave.png">
+        </div>
+    </div>
+</div>
+<div class="modalcover">
+    <div class="modal">
+        <h1 id="modalheader">Preview</h1>
+        <h2>Select and preview your color settings here, then click the button below and enter your customization options.</h2>
+        <video controls id="modalpreview">
+            <source src="templates/pixel.mp4" type="video/mp4">
+            Your browser doesn't support the video tag!
+        </video>
+        <h2 style="margin-top:.5vw;margin-bottom:.5vw!important" id="modalhuedisplay">Hue shift: 0</h2>
+        <input type="range" min="0" max="360" value="0" id="modalhue" class="slider">
+        <br>
+        <button id="modalbutton">Customize & Render</button>
+    </div>
+</div>
+<script>
+
+    var templateids = {'pixel':'PKMm65C','retrowave':'oAkbALZ','modern':'G6xLZ0F'};
+
+    function openModal(s) {
+        document.querySelector('#modalpreview > source').src = `templates/${s}.mp4`;
+        document.querySelector('#modalpreview').load();
+        document.querySelector('#modalpreview').setAttribute('poster', `images/${s}.png`);
+        document.querySelector('#modalbutton').setAttribute('data-shoppy-product',templateids[s]);
+        dispatchEvent(new Event('load'));
+        document.querySelector('.modalcover').classList.add('visible');
+    }
+
+    function closeModal() {
+        document.querySelector('.modalcover').classList.remove('visible');
+    }
+
+    window.onload = function() {
+        document.querySelectorAll('.template').forEach(s => {
+            s.addEventListener('click',e => {
+                openModal(e.target.parentElement.id);
+            })
+        });
+        document.querySelector('.modalcover').addEventListener('click', e => {
+            if (e.target.classList.contains('modalcover')) {
+                closeModal();
+            }
+        });
+        document.querySelector('#modalhue').addEventListener('input', e => {
+            document.querySelector('#modalpreview').style.filter = `hue-rotate(${e.target.value.toString()}deg)`;
+            document.querySelector('#modalhuedisplay').innerHTML = `Hue shift: ${e.target.value.toString()}`;
+        });
+    };
+</script>
+</body>
+</html>
+
+<!--
+<video controls>
+                <source src="templates/pixel.mp4" type="video/mp4">
+                Your browser doesn't support the video tag!
+            </video>
+
+<button data-shoppy-product="G6xLZ0F">Pay</button>
+-->
