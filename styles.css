@@ -17,7 +17,7 @@ body {
     margin: 0;
     width: 33.3vw;
     height: 100vh;
-    background: #80c8bc;
+    background: #29cc86;
     color: white;
     display: inline-block;
 }
@@ -25,7 +25,7 @@ body {
 .cont:nth-of-type(2) {
     width: 66.7vw;
     margin-left: -4.5px; /*-.34vw;*/
-    background: #40b3a2;
+    background: #11a590;
     overflow-y: scroll;
 }
 
@@ -53,7 +53,7 @@ body {
     border: .7vw solid white;
     padding: 2vw 1vw 1vw 2vw;
     width: 15vw;
-    box-shadow: .7vw .7vw #80c8bc, 1.4vw 1.4vw #40b3a2, inset .7vw .7vw #80c8bc, inset -.7vw -.7vw #80c8bc, inset 1.4vw 1.4vw #40b3a2;
+    box-shadow: .7vw .7vw #29cc86, 1.4vw 1.4vw #11a590, inset .7vw .7vw #29cc86, inset -.7vw -.7vw #29cc86, inset 1.4vw 1.4vw #11a590;
 }
 
 .cont:nth-of-type(2) .header {
@@ -61,7 +61,7 @@ body {
     padding: 0;
     color: #3A5683;
     width: 20vw;
-    box-shadow: .7vw .7vw #40b3a2, 1.4vw 1.4vw #80c8bc;
+    box-shadow: .7vw .7vw #11a590, 1.4vw 1.4vw #3A5683;
 }
 
 .cont:nth-of-type(2) h2 {
@@ -153,7 +153,7 @@ body {
     appearance: none;
     width: 33.3%;
     height: 1.2vw;
-    background: #80c8bc;
+    background: #29cc86;
     outline: none;
     opacity: 0.85;
     transition: .2s;
@@ -179,21 +179,21 @@ body {
     cursor: pointer;
 }
 
-#modalbutton {
+.modalbutton {
     border: none;
     font-size: 1.2vw;
     outline: none;
-    color: #40b3a2;
-    border: .2vw solid #40b3a2;
+    color: #11a590;
+    border: .2vw solid #11a590;
     padding: .7vw 1.5vw;
     margin-top: .5vw;
     cursor: pointer;
     background: white;
 }
 
-#modalbutton:hover {
+.modalbutton:hover {
     color: white;
-    background: #40b3a2;
+    background: #11a590;
 }
 
 @media only screen and (orientation: portrait) {
@@ -210,7 +210,7 @@ body {
         border: .7vh solid white;
         padding: 2vh 1vh 1vh 2vh;
         width: 60vw;
-        box-shadow: .7vh .7vh #80c8bc, 1.4vh 1.4vh #40b3a2, inset .7vh .7vh #80c8bc, inset -.7vh -.7vh #80c8bc, inset 1.4vh 1.4vh #40b3a2;
+        box-shadow: .7vh .7vh #29cc86, 1.4vh 1.4vh #11a590, inset .7vh .7vh #29cc86, inset -.7vh -.7vh #29cc86, inset 1.4vh 1.4vh #11a590;
     }
     .header h2 {
         font-size: 3.5vh;

@@ -10,7 +10,7 @@
     <meta content="prcptn forest: motion graphics, simplified" property="og:title">
     <meta content="Why should you need professional software and experience to create a good-looking video intro? With prcptn forest, you can customize and render a video in seconds." property="og:description">
     <meta content="forest" property="og:site_name">
-    <meta content='images/logo.svg' property='og:image'>
+    <meta content='images/logo.png' property='og:image'>
 </head>
 <body>
 <div class="cont">
@@ -46,18 +46,23 @@
         <h2 style="margin-top:.5vw;margin-bottom:.5vw!important" id="modalhuedisplay">Hue shift: 0</h2>
         <input type="range" min="0" max="360" value="0" id="modalhue" class="slider">
         <br>
-        <button id="modalbutton">Customize & Render</button>
+        <button id="mbpixel" class="modalbutton" data-shoppy-product="PKMm65C">Customize & Render</button>
+        <button id="mbretrowave" class="modalbutton" data-shoppy-product="oAkbALZ">Customize & Render</button>
+        <button id="mbmodern" class="modalbutton" data-shoppy-product="G6xLZ0F">Customize & Render</button>
     </div>
 </div>
 <script>
 
-    var templateids = {'pixel':'PKMm65C','retrowave':'oAkbALZ','modern':'G6xLZ0F'};
+    // var templateids = {'pixel':'PKMm65C','retrowave':'oAkbALZ','modern':'G6xLZ0F'};
 
     function openModal(s) {
         document.querySelector('#modalpreview > source').src = `templates/${s}.mp4`;
         document.querySelector('#modalpreview').load();
         document.querySelector('#modalpreview').setAttribute('poster', `images/${s}.png`);
-        document.querySelector('#modalbutton').setAttribute('data-shoppy-product',templateids[s]);
+        document.querySelectorAll('.modalbutton').forEach(s => {
+            s.style.display = 'none';
+        });
+        document.querySelector(`#mb${s}`).style.display = 'inline-block';
         dispatchEvent(new Event('load'));
         document.querySelector('.modalcover').classList.add('visible');
     }
@@ -80,6 +85,11 @@
         document.querySelector('#modalhue').addEventListener('input', e => {
             document.querySelector('#modalpreview').style.filter = `hue-rotate(${e.target.value.toString()}deg)`;
             document.querySelector('#modalhuedisplay').innerHTML = `Hue shift: ${e.target.value.toString()}`;
+        });
+        document.body.addEventListener('keydown', function(e) {
+            if(e.key == "Escape"){
+                closeModal();
+            }
         });
     };
 </script>
